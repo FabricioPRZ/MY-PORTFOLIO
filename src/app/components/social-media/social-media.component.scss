@@ -1,0 +1,115 @@
+.social-media-container {
+    position: fixed;
+    left: 2rem;
+    bottom: 0;
+    z-index: 100;
+
+    &::after {
+        content: '';
+        width: 1px;
+        height: 90px;
+        background: linear-gradient(
+            to top,
+            #7B4AE2,
+            rgba(123, 74, 226, 0)
+        );
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.social-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .link-text {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(10, 10, 13, 0.9);
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        font-family: 'Space Mono', monospace;
+        border: 1px solid rgba(123, 74, 226, 0.3);
+        backdrop-filter: blur(4px);
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+
+        .link-text {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-100%);
+        }
+    }
+
+    &.github:hover {
+        color: #7B4AE2;
+    }
+
+    &.linkedin:hover {
+        color: #0077B5;
+    }
+
+    &.instagram:hover {
+        color: #E4405F;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: currentColor;
+        filter: blur(20px);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    &:hover::before {
+        opacity: 0.2;
+    }
+}
+
+@media (max-width: 768px) {
+    .social-media-container {
+        position: relative;
+        left: 0;
+        padding: 2rem 0;
+
+        &::after {
+            display: none;
+        }
+    }
+
+    .social-links {
+        flex-direction: row;
+        justify-content: center;
+        padding-bottom: 0;
+    }
+
+    .social-link {
+        .link-text {
+            display: none;
+        }
+    }
+}

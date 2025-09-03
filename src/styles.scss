@@ -1,1 +1,246 @@
-/* You can add global styles to this file, and also import other style files */
+/* Reset CSS */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS Variables */
+:root {
+  --header-height: 80px;
+  --container-padding: 2rem;
+
+  @media (min-width: 2560px) {
+    --container-padding: 4rem;
+  }
+
+  @media (max-width: 768px) {
+    --container-padding: 1rem;
+  }
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  background: var(--background-color);
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.6;
+  min-height: 100%;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+/* Main Container */
+app-root {
+  display: block;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Section Common Styles */
+section {
+  width: 100%;
+  position: relative;
+}
+
+/* Utility Classes */
+.cyber-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+
+  @media (min-width: 2560px) {
+    max-width: 1800px;
+  }
+
+  @media (min-width: 3840px) {
+    max-width: 2400px;
+  }
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(123, 74, 226, 0.3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(123, 74, 226, 0.5);
+}
+
+/* Responsive typography */
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem) !important;
+}
+
+/* Media queries for different screen sizes */
+@mixin responsive-sections {
+  /* 4K and large screens */
+  @media (min-width: 2560px) {
+    .hero-content {
+      gap: 6rem;
+    }
+
+    .profile-image {
+      width: 400px;
+      height: 400px;
+    }
+
+    .hero-text h1 {
+      font-size: 4.5rem;
+    }
+
+    .description {
+      font-size: 1.3rem;
+    }
+  }
+
+  /* Standard desktop screens */
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    section {
+      padding: 5rem var(--container-padding);
+    }
+  }
+
+  /* Smaller desktop screens and laptops */
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    section {
+      padding: 4rem var(--container-padding);
+    }
+
+    .profile-image {
+      width: 280px;
+      height: 280px;
+    }
+  }
+
+  /* Tablets and smaller laptops */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    section {
+      padding: 3rem var(--container-padding);
+    }
+
+    .grid-layout {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Mobile devices */
+  @media (max-width: 767px) {
+    section {
+      padding: 2rem var(--container-padding);
+    }
+
+    .grid-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Height-based media queries */
+  @media (max-height: 768px) {
+    section {
+      min-height: auto;
+      padding: 4rem var(--container-padding);
+    }
+  }
+}
+
+/* Apply responsive styles */
+@include responsive-sections;
+
+/* Grid layouts */
+.grid-layout {
+  display: grid;
+  gap: clamp(1rem, 2vw, 2rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+/* Project cards responsive adjustments */
+.project-card {
+  max-width: min(100%, 500px);
+  margin: 0 auto;
+
+  @media (min-width: 2560px) {
+    max-width: 700px;
+  }
+
+  @media (max-width: 767px) {
+    max-width: 100%;
+  }
+}
+
+/* Common spacing utilities */
+.section-spacing {
+  padding: clamp(2rem, 4vw, 6rem) var(--container-padding);
+}
+
+/* Responsive font sizes */
+:root {
+  --font-size-xs: clamp(0.75rem, 1vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 1.2vw, 1rem);
+  --font-size-base: clamp(1rem, 1.5vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 2vw, 1.25rem);
+  --font-size-xl: clamp(1.25rem, 2.5vw, 1.5rem);
+  --font-size-2xl: clamp(1.5rem, 3vw, 2rem);
+  --font-size-3xl: clamp(2rem, 4vw, 3rem);
+}
+
+/* Add these classes to your components */
+.text-responsive {
+  font-size: var(--font-size-base);
+}
+
+.title-responsive {
+  font-size: var(--font-size-3xl);
+}
+
+/* Aspect ratios */
+.aspect-ratio-box {
+  position: relative;
+  width: 100%;
+
+  &::before {
+    content: '';
+    display: block;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  }
+
+  &.square::before {
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+  }
+
+  &.portrait::before {
+    padding-top: 125%; /* 4:5 Aspect Ratio */
+  }
+}
+
+/* Container max-widths */
+.container {
+  width: 100%;
+  max-width: var(--container-width, 1400px);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+
+  @media (min-width: 2560px) {
+    --container-width: 1800px;
+  }
+
+  @media (min-width: 3840px) {
+    --container-width: 2400px;
+  }
+}

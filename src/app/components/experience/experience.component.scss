@@ -1,0 +1,203 @@
+.experience-section {
+    min-height: 100vh;
+    background: #0a0a0d;
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(90deg, transparent 50%, rgba(123, 74, 226, 0.05) 100%),
+            repeating-linear-gradient(transparent 0%,
+                transparent 2px,
+                rgba(123, 74, 226, 0.05) 3px,
+                rgba(123, 74, 226, 0.05) 3px);
+    }
+}
+
+.cyber-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 4rem;
+    padding-left: 2rem;
+    position: relative;
+
+    .accent {
+        color: #7B4AE2;
+        animation: blink 1s infinite;
+    }
+
+    &::before {
+        content: '<';
+        position: absolute;
+        left: 0;
+        color: #7B4AE2;
+        opacity: 0.5;
+    }
+}
+
+.experience-hexgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    padding: 2rem;
+    font-family: 'Space Grotesk', sans-serif;
+
+}
+
+.hex-item {
+    position: relative;
+    background: rgba(123, 74, 226, 0.05);
+    clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0 50%);
+    transition: transform 0.3s ease;
+    font-family: 'Space Grotesk', sans-serif;
+
+
+    &:hover {
+        transform: translateY(-10px);
+
+        .hex-glitch {
+            opacity: 1;
+        }
+    }
+}
+
+.hex-content {
+    padding: 3rem 2rem;
+    background: rgba(10, 10, 13, 0.9);
+    border: 1px solid rgba(123, 74, 226, 0.2);
+    height: 100%;
+}
+
+.hex-glitch {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg,
+            transparent 0%,
+            rgba(123, 74, 226, 0.1) 45%,
+            rgba(35, 211, 250, 0.1) 55%,
+            transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cyber-date {
+    font-family: 'Space Mono', monospace;
+    color: #7B4AE2;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.company {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    .cyber-tag {
+        background: rgba(123, 74, 226, 0.1);
+        padding: 0.2rem 0.8rem;
+        border: 1px solid rgba(123, 74, 226, 0.3);
+        color: #7B4AE2;
+    }
+
+    .separator {
+        color: rgba(123, 74, 226, 0.5);
+    }
+
+    span:last-child {
+        color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+h3 {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.cyber-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+
+    li {
+        color: rgba(255, 255, 255, 0.7);
+        padding-left: 1.5rem;
+        margin-bottom: 0.75rem;
+        position: relative;
+
+        &::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: #7B4AE2;
+        }
+    }
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.tech-pill {
+    padding: 0.4rem 1rem;
+    background: rgba(35, 211, 250, 0.1);
+    border: 1px solid rgba(35, 211, 250, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+    font-family: 'Space Mono', monospace;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: rgba(35, 211, 250, 0.2);
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .experience-section {
+        padding: 4rem 1rem;
+    }
+
+    .experience-hexgrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .hex-content {
+        padding: 2rem 1.5rem;
+    }
+}
