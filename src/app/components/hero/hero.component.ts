@@ -38,7 +38,7 @@ export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
     description1: 'Desarrollador Full Stack especializado en Angular, enfocado en crear aplicaciones web escalables con interfaces intuitivas y experiencias de usuario excepcionales.',
     description2: 'Dominio de múltiples tecnologías: React, Vue, TypeScript, JavaScript, Python, Java y Go. Me adapto rápidamente a nuevos desafíos y disfruto trabajar en equipos colaborativos.',
     profileImage: '/Perfil.jpeg',
-    cvPath: '/CV/CV-FABRICIO.pdf'
+    cvPath: '/CV/CV.pdf'
   };
 
   stats = [
