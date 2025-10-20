@@ -1,10 +1,18 @@
 <app-header></app-header>
-<div class="social-media-wrapper">
+
+<!-- Social Media solo visible en desktop como sidebar fijo -->
+<div class="social-media-wrapper desktop-only">
     <app-social-media></app-social-media>
 </div>
+
 <app-hero></app-hero>
 <app-experience></app-experience>
 <app-skills></app-skills>
 <app-projects></app-projects>
 <app-certifications></app-certifications>
 <app-contact></app-contact>
+
+<!-- Social Media para mobile/tablet - al final de todo -->
+<div class="social-media-wrapper mobile-only">
+    <app-social-media></app-social-media>
+</div>

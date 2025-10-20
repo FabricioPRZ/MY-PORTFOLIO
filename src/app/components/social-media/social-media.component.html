@@ -1,23 +1,20 @@
 <section class="social-media-section" id="social-media">
-    <div class="cyber-grid">
-
-        <div class="social-media-container">
-            <div class="social-links">
-                <a href="https://github.com/FabricioPRZ" target="_blank" class="social-link github">
-                    <i class="fab fa-github"></i>
-                    <span class="link-text">GitHub</span>
-                </a>
-
-                <a href="https://www.linkedin.com/in/victor-fabricio-perez-constantino-8727512b6/" target="_blank" class="social-link linkedin">
-                    <i class="fab fa-linkedin"></i>
-                    <span class="link-text">LinkedIn</span>
-                </a>
-
-                <a href="https://www.instagram.com/tuinstagram" target="_blank" class="social-link instagram">
-                    <i class="fab fa-instagram"></i>
-                    <span class="link-text">Instagram</span>
-                </a>
-            </div>
-        </div>
+  <div class="cyber-grid">
+    <div class="social-media-container">
+      <div class="social-links">
+        <a 
+          *ngFor="let social of socialLinks"
+          [href]="social.url"
+          [target]="social.external ? '_blank' : '_self'"
+          [rel]="social.external ? 'noopener noreferrer' : ''"
+          [class]="'social-link ' + social.platform"
+          [attr.aria-label]="social.ariaLabel"
+          [title]="social.name">
+          
+          <i [class]="social.icon"></i>
+          <span class="link-text">{{ social.name }}</span>
+        </a>
+      </div>
     </div>
+  </div>
 </section>

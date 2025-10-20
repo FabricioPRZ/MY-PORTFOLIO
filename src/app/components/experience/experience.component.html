@@ -1,56 +1,68 @@
 <section class="experience-section" id="experience">
-    <div class="cyber-grid">
-        <h2 class="section-title">Experiencia<span class="accent">_</span></h2>
-        
-        <div class="experience-hexgrid">
-            <article class="hex-item">
-                <div class="hex-content">
-                    <div class="hex-glitch"></div>
-                    <span class="cyber-date">2025</span>
-                    <h3>Frontend Team Leader</h3>
-                    <div class="company">
-                        <span class="cyber-tag">SUMS</span>
-                        <span class="separator">//</span>
-                        <span>Medical System</span>
-                    </div>
-                    <ul class="cyber-list">
-                        <li>Lideré equipo frontend</li>
-                        <li>Clean Architecture</li>
-                        <li>UI/UX Design</li>
-                        <li>Team Management</li>
-                        <li>Version Control</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <div class="tech-pill">Angular</div>
-                        <div class="tech-pill">TypeScript</div>
-                        <div class="tech-pill">Figma</div>
-                        <div class="tech-pill">Git</div>
-                    </div>
-                </div>
-            </article>
+  <!-- Canvas de partículas glass -->
+  <canvas #particlesCanvas class="particles-canvas"></canvas>
+  
+  <!-- Orbes decorativos glass -->
+  <div class="glass-orb glass-orb-1"></div>
+  <div class="glass-orb glass-orb-2"></div>
+  <div class="glass-orb glass-orb-3"></div>
 
-            <article class="hex-item">
-                <div class="hex-content">
-                    <div class="hex-glitch"></div>
-                    <span class="cyber-date">2025</span>
-                    <h3>Full Stack Developer</h3>
-                    <div class="company">
-                        <span class="cyber-tag">Hackathon</span>
-                        <span class="separator">//</span>
-                        <span>Varanetwork</span>
-                    </div>
-                    <ul class="cyber-list">
-                        <li>Web3.0 Development</li>
-                        <li>Blockchain Integration</li>
-                        <li>Team Collaboration</li>
-                    </ul>
-                    <div class="tech-stack">
-                        <div class="tech-pill">Web3</div>
-                        <div class="tech-pill">Blockchain</div>
-                        <div class="tech-pill">Full Stack</div>
-                    </div>
-                </div>
-            </article>
-        </div>
+  <div class="cyber-grid">
+    <!-- Header mejorado -->
+    <div class="section-header">
+      <h2 class="section-title">
+        Experiencia<span class="accent">_</span>
+      </h2>
+      <p class="section-subtitle">
+        Transformando ideas en soluciones digitales innovadoras
+      </p>
     </div>
+    
+    <!-- Grid de experiencias con *ngFor -->
+    <div class="experience-hexgrid">
+      <article 
+        *ngFor="let exp of experiences; let i = index" 
+        class="hex-item"
+        [style.animation-delay.s]="(i + 1) * 0.2">
+        
+        <div class="hex-content">
+          <!-- Efectos glass -->
+          <div class="hex-glitch"></div>
+          <div class="glass-shine"></div>
+          
+          <!-- Año -->
+          <span class="cyber-date">{{ exp.year }}</span>
+          
+          <!-- Título -->
+          <h3>{{ exp.title }}</h3>
+          
+          <!-- Compañía -->
+          <div class="company">
+            <span class="cyber-tag">{{ exp.company }}</span>
+            <span class="separator">//</span>
+            <span class="company-type">{{ exp.companyType }}</span>
+          </div>
+          
+          <!-- Responsabilidades -->
+          <ul class="cyber-list">
+            <li *ngFor="let resp of exp.responsibilities">
+              {{ resp }}
+            </li>
+          </ul>
+          
+          <!-- Stack tecnológico -->
+          <div class="tech-stack">
+            <div 
+              *ngFor="let tech of exp.technologies" 
+              class="tech-pill">
+              {{ tech }}
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Timeline decorativa -->
+    <div class="timeline-line"></div>
+  </div>
 </section>

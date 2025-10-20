@@ -1,259 +1,377 @@
 <section class="projects-section" id="projects">
-    <div class="cyber-grid">
-        <h2 class="section-title">Proyectos<span class="accent">_</span></h2>
-        
-        <div class="carousel-container">
-            <button class="carousel-button prev" (click)="prevSlide()">
-                <i class="fas fa-chevron-left"></i>
-            </button>
+  <canvas #particlesCanvas class="particles-canvas"></canvas>
+  
+  <!-- Orbes decorativos glass -->
+  <div class="glass-orb glass-orb-1"></div>
+  <div class="glass-orb glass-orb-2"></div>
+  <div class="glass-orb glass-orb-3"></div>
 
-            <div class="carousel-wrapper">
-                <div class="carousel-track">
-                    <!-- SUMS Project -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="/Projects/SUMS.png" alt="Project Preview">
-                            <div class="image-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3>SUMS Suchiapa</h3>
-                                <div class="project-links">
-                                    <a href="https://github.com/FabricioPRZ/UNIMED-SUCHIAPA" target="_blank" class="cyber-link">
-                                        <i class="devicon-github-original"></i>
-                                        <span class="link-text">GitHub</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <p class="project-description">
-                                Sistema de unudad médica para el municipio de Suchiapa, Chiapas. Desarrollado con Angular, TypeScript y SCSS.
-                            </p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Angular</span>
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">SCSS</span>
-                            </div>
-                        </div>
-                    </article>
+  <div class="cyber-grid">
+    <!-- Header mejorado -->
+    <h2 class="section-title">
+      Proyectos<span class="accent">_</span>
+    </h2>
+    
+    <!-- Carrusel de proyectos -->
+    <div class="carousel-container">
+      <!-- Botón anterior -->
+      <button class="carousel-button prev" (click)="prevSlide()" aria-label="Proyecto anterior">
+        <i class="fas fa-chevron-left"></i>
+      </button>
 
-                    <!-- FERMEST Project -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="/Projects/FERMEST.png" alt="Project Preview">
-                            <div class="image-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3>FERMEST</h3>
-                                <div class="project-links">
-                                    <a href="https://github.com/FabricioPRZ/FERMEST" target="_blank" class="cyber-link">
-                                        <i class="devicon-github-original"></i>
-                                        <span class="link-text">GitHub</span>
-                                    </a>
-                                    <a target="_blank" href="https://fermest.vercel.app/inicio" class="cyber-link">
-                                        <i class="fas fa-external-link-alt"></i>
-                                        <span class="link-text">Demo</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <p class="project-description">
-                                Sistema de monitoreo y control de un fermentador de biomasa para la producción de biocombustibles.
-                            </p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Angular</span>
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">SCSS</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- CASM Project -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="/Projects/CASM.png" alt="Project Preview">
-                            <div class="image-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3>CASM</h3>
-                                <div class="project-links">
-                                    <a href="https://github.com/FabricioPRZ/CASM" target="_blank" class="cyber-link">
-                                        <i class="devicon-github-original"></i>
-                                        <span class="link-text">GitHub</span>
-                                    </a>
-                                    <a target="_blank" href="https://fabricioprz.github.io/CASM" class="cyber-link">
-                                        <i class="fas fa-external-link-alt"></i>
-                                        <span class="link-text">Demo</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <p class="project-description">
-                                Red social para la comunicación entre profesionales de la salud mental y personas que buscan apoyo psicológico.
-                            </p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">Angular</span>
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">SCSS</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Yare's Room Project -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="/Projects/YARESROOM.png" alt="Project Preview">
-                            <div class="image-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3>Yare's Room</h3>
-                                <div class="project-links">
-                                    <a href="https://github.com/FabricioPRZ/YARES-ROOM" target="_blank" class="cyber-link">
-                                        <i class="devicon-github-original"></i>
-                                        <span class="link-text">GitHub</span>
-                                    </a>
-                                    <a target="_blank" href="https://yaresroom.vercel.app/" class="cyber-link">
-                                        <i class="fas fa-external-link-alt"></i>
-                                        <span class="link-text">Demo</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <p class="project-description">
-                                Landing Page para un negocio de uñas acrílicas y gelificadas.
-                            </p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">CSS</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- TechNovaAI Project -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="/Projects/TECHNOVA.png" alt="Project Preview">
-                            <div class="image-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3>TechNovaAI</h3>
-                                <div class="project-links">
-                                    <a href="https://github.com/FabricioPRZ/TechNovaAI" target="_blank" class="cyber-link">
-                                        <i class="devicon-github-original"></i>
-                                        <span class="link-text">GitHub</span>
-                                    </a>
-                                    <a target="_blank" href="https://fabricioprz.github.io/TechNovaAI/" class="cyber-link">
-                                        <i class="fas fa-external-link-alt"></i>
-                                        <span class="link-text">Demo</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <p class="project-description">
-                                Landing Page para promocionar servicios de inteligencia artificial.
-                            </p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">CSS</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- GrowDigital Project -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="/Projects/GROWDIGITAL.png" alt="Project Preview">
-                            <div class="image-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3>GrowDigital</h3>
-                                <div class="project-links">
-                                    <a href="https://github.com/FabricioPRZ/GrowDigital" target="_blank" class="cyber-link">
-                                        <i class="devicon-github-original"></i>
-                                        <span class="link-text">GitHub</span>
-                                    </a>
-                                    <a target="_blank" href="https://fabricioprz.github.io/GrowDigital/" class="cyber-link">
-                                        <i class="fas fa-external-link-alt"></i>
-                                        <span class="link-text">Demo</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <p class="project-description">
-                                Landing Page para promocionar servicios de marketing digital.
-                            </p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">CSS</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Café Aroma Project -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="/Projects/AROMACAFE.png" alt="Project Preview">
-                            <div class="image-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3>Café Aroma</h3>
-                                <div class="project-links">
-                                    <a href="https://github.com/FabricioPRZ/-Caf--Aroma" target="_blank" class="cyber-link">
-                                        <i class="devicon-github-original"></i>
-                                        <span class="link-text">GitHub</span>
-                                    </a>
-                                    <a target="_blank" href="https://fabricioprz.github.io/-Caf--Aroma/" class="cyber-link">
-                                        <i class="fas fa-external-link-alt"></i>
-                                        <span class="link-text">Demo</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <p class="project-description">
-                                Landing Page para promocionar una cafetería local.
-                            </p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">CSS</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Legado Activo Project -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="/Projects/LEGADOACTIVO.png" alt="Project Preview">
-                            <div class="image-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3>Legado Activo</h3>
-                                <div class="project-links">
-                                    <a target="_blank" href="https://sites.google.com/view/legadoactivo/inicio" class="cyber-link">
-                                        <i class="fas fa-external-link-alt"></i>
-                                        <span class="link-text">Demo</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <p class="project-description">
-                                Landing Page para promocionar un grupo musical.
-                            </p>
-                            <div class="tech-stack">
-                                <span class="tech-tag">HTML</span>
-                                <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">CSS</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+      <div class="carousel-wrapper">
+        <div class="carousel-track">
+          <!-- SUMS Project -->
+          <article class="project-card">
+            <!-- Efectos glass -->
+            <div class="glass-shine"></div>
+            
+            <div class="project-image">
+              <img src="/Projects/SUMS.png" alt="SUMS Suchiapa - Sistema médico" loading="lazy">
+              <div class="image-overlay"></div>
             </div>
+            
+            <div class="project-content">
+              <div class="project-header">
+                <h3>SUMS Suchiapa</h3>
+                <div class="project-links">
+                  <a href="https://github.com/FabricioPRZ/UNIMED-SUCHIAPA" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     class="cyber-link"
+                     aria-label="Ver código en GitHub">
+                    <i class="devicon-github-original"></i>
+                    <span class="link-text">GitHub</span>
+                  </a>
+                </div>
+              </div>
+              
+              <p class="project-description">
+                Sistema de unidad médica para el municipio de Suchiapa, Chiapas. 
+                Desarrollado con Angular, TypeScript y SCSS para gestión integral de servicios médicos.
+              </p>
+              
+              <div class="tech-stack">
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">SCSS</span>
+              </div>
+            </div>
+          </article>
 
-            <button class="carousel-button next" (click)="nextSlide()">
-                <i class="fas fa-chevron-right"></i>
-            </button>
+          <!-- FERMEST Project -->
+          <article class="project-card">
+            <div class="glass-shine"></div>
+            
+            <div class="project-image">
+              <img src="/Projects/FERMEST.png" alt="FERMEST - Sistema de fermentación" loading="lazy">
+              <div class="image-overlay"></div>
+            </div>
+            
+            <div class="project-content">
+              <div class="project-header">
+                <h3>FERMEST</h3>
+                <div class="project-links">
+                  <a href="https://github.com/FabricioPRZ/FERMEST" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     class="cyber-link"
+                     aria-label="Ver código en GitHub">
+                    <i class="devicon-github-original"></i>
+                    <span class="link-text">GitHub</span>
+                  </a>
+                  <a href="https://fermest.vercel.app/inicio" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     class="cyber-link"
+                     aria-label="Ver demo en vivo">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span class="link-text">Demo</span>
+                  </a>
+                </div>
+              </div>
+              
+              <p class="project-description">
+                Sistema de monitoreo y control de un fermentador de biomasa para la 
+                producción de biocombustibles. Control en tiempo real de procesos industriales.
+              </p>
+              
+              <div class="tech-stack">
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">SCSS</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- CASM Project -->
+          <article class="project-card">
+            <div class="glass-shine"></div>
+            
+            <div class="project-image">
+              <img src="/Projects/CASM.png" alt="CASM - Red social de salud mental" loading="lazy">
+              <div class="image-overlay"></div>
+            </div>
+            
+            <div class="project-content">
+              <div class="project-header">
+                <h3>CASM</h3>
+                <div class="project-links">
+                  <a href="https://github.com/FabricioPRZ/CASM" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     class="cyber-link"
+                     aria-label="Ver código en GitHub">
+                    <i class="devicon-github-original"></i>
+                    <span class="link-text">GitHub</span>
+                  </a>
+                  <a href="https://fabricioprz.github.io/CASM" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     class="cyber-link"
+                     aria-label="Ver demo en vivo">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span class="link-text">Demo</span>
+                  </a>
+                </div>
+              </div>
+              
+              <p class="project-description">
+                Red social para la comunicación entre profesionales de la salud mental 
+                y personas que buscan apoyo psicológico. Plataforma de conexión y soporte.
+              </p>
+              
+              <div class="tech-stack">
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">SCSS</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Yare's Room Project -->
+          <article class="project-card">
+            <div class="glass-shine"></div>
+            
+            <div class="project-image">
+              <img src="/Projects/YARESROOM.png" alt="Yare's Room - Landing Page" loading="lazy">
+              <div class="image-overlay"></div>
+            </div>
+            
+            <div class="project-content">
+              <div class="project-header">
+                <h3>Yare's Room</h3>
+                <div class="project-links">
+                  <a href="https://github.com/FabricioPRZ/YARES-ROOM" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     class="cyber-link"
+                     aria-label="Ver código en GitHub">
+                    <i class="devicon-github-original"></i>
+                    <span class="link-text">GitHub</span>
+                  </a>
+                  <a href="https://yaresroom.vercel.app/" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     class="cyber-link"
+                     aria-label="Ver demo en vivo">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span class="link-text">Demo</span>
+                  </a>
+                </div>
+              </div>
+              
+              <p class="project-description">
+                Landing Page elegante y moderna para un negocio de uñas acrílicas y 
+                gelificadas. Diseño enfocado en conversión y experiencia de usuario.
+              </p>
+              
+              <div class="tech-stack">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">CSS</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- TechNovaAI Project -->
+          <article class="project-card">
+            <div class="glass-shine"></div>
+            
+            <div class="project-image">
+              <img src="/Projects/TECHNOVA.png" alt="TechNovaAI - Landing Page IA" loading="lazy">
+              <div class="image-overlay"></div>
+            </div>
+            
+            <div class="project-content">
+              <div class="project-header">
+                <h3>TechNovaAI</h3>
+                <div class="project-links">
+                  <a href="https://github.com/FabricioPRZ/TechNovaAI" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     class="cyber-link"
+                     aria-label="Ver código en GitHub">
+                    <i class="devicon-github-original"></i>
+                    <span class="link-text">GitHub</span>
+                  </a>
+                  <a href="https://fabricioprz.github.io/TechNovaAI/" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     class="cyber-link"
+                     aria-label="Ver demo en vivo">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span class="link-text">Demo</span>
+                  </a>
+                </div>
+              </div>
+              
+              <p class="project-description">
+                Landing Page moderna para promocionar servicios de inteligencia artificial. 
+                Diseño futurista con animaciones y efectos visuales impactantes.
+              </p>
+              
+              <div class="tech-stack">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">CSS</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- GrowDigital Project -->
+          <article class="project-card">
+            <div class="glass-shine"></div>
+            
+            <div class="project-image">
+              <img src="/Projects/GROWDIGITAL.png" alt="GrowDigital - Marketing Digital" loading="lazy">
+              <div class="image-overlay"></div>
+            </div>
+            
+            <div class="project-content">
+              <div class="project-header">
+                <h3>GrowDigital</h3>
+                <div class="project-links">
+                  <a href="https://github.com/FabricioPRZ/GrowDigital" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     class="cyber-link"
+                     aria-label="Ver código en GitHub">
+                    <i class="devicon-github-original"></i>
+                    <span class="link-text">GitHub</span>
+                  </a>
+                  <a href="https://fabricioprz.github.io/GrowDigital/" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     class="cyber-link"
+                     aria-label="Ver demo en vivo">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span class="link-text">Demo</span>
+                  </a>
+                </div>
+              </div>
+              
+              <p class="project-description">
+                Landing Page profesional para promocionar servicios de marketing digital. 
+                Optimizada para conversión con diseño responsivo y atractivo.
+              </p>
+              
+              <div class="tech-stack">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">CSS</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Café Aroma Project -->
+          <article class="project-card">
+            <div class="glass-shine"></div>
+            
+            <div class="project-image">
+              <img src="/Projects/AROMACAFE.png" alt="Café Aroma - Cafetería" loading="lazy">
+              <div class="image-overlay"></div>
+            </div>
+            
+            <div class="project-content">
+              <div class="project-header">
+                <h3>Café Aroma</h3>
+                <div class="project-links">
+                  <a href="https://github.com/FabricioPRZ/-Caf--Aroma" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     class="cyber-link"
+                     aria-label="Ver código en GitHub">
+                    <i class="devicon-github-original"></i>
+                    <span class="link-text">GitHub</span>
+                  </a>
+                  <a href="https://fabricioprz.github.io/-Caf--Aroma/" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     class="cyber-link"
+                     aria-label="Ver demo en vivo">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span class="link-text">Demo</span>
+                  </a>
+                </div>
+              </div>
+              
+              <p class="project-description">
+                Landing Page cálida y acogedora para promocionar una cafetería local. 
+                Diseño que transmite la esencia y ambiente del negocio.
+              </p>
+              
+              <div class="tech-stack">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">CSS</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Legado Activo Project -->
+          <article class="project-card">
+            <div class="glass-shine"></div>
+            
+            <div class="project-image">
+              <img src="/Projects/LEGADOACTIVO.png" alt="Legado Activo - Grupo Musical" loading="lazy">
+              <div class="image-overlay"></div>
+            </div>
+            
+            <div class="project-content">
+              <div class="project-header">
+                <h3>Legado Activo</h3>
+                <div class="project-links">
+                  <a href="https://sites.google.com/view/legadoactivo/inicio" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     class="cyber-link"
+                     aria-label="Ver demo en vivo">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span class="link-text">Demo</span>
+                  </a>
+                </div>
+              </div>
+              
+              <p class="project-description">
+                Landing Page vibrante y energética para promocionar un grupo musical. 
+                Diseño que captura la personalidad y estilo de la banda.
+              </p>
+              
+              <div class="tech-stack">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">CSS</span>
+              </div>
+            </div>
+          </article>
         </div>
+      </div>
+
+      <!-- Botón siguiente -->
+      <button class="carousel-button next" (click)="nextSlide()" aria-label="Proyecto siguiente">
+        <i class="fas fa-chevron-right"></i>
+      </button>
     </div>
+  </div>
 </section>

@@ -1,155 +1,731 @@
 .contact-section {
-    min-height: 100vh;
-    background: #0a0a0d;
-    padding: 6rem 2rem;
-    position: relative;
-    overflow: hidden;
-
-    &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: 
-            radial-gradient(circle at 80% 20%, rgba(123, 74, 226, 0.15), transparent 25%),
-            radial-gradient(circle at 20% 80%, rgba(35, 211, 250, 0.15), transparent 25%);
-        pointer-events: none;
-    }
+  min-height: 100vh;
+  padding: 8rem 2rem;
+  background: linear-gradient(135deg,
+    rgba(10, 10, 13, 1) 0%,
+    rgba(15, 15, 20, 1) 50%,
+    rgba(10, 10, 13, 1) 100%);
+  position: relative;
+  overflow: hidden;
 }
 
-.section-title {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 3rem;
-    color: #fff;
-    margin-bottom: 4rem;
-    padding-left: 2rem;
-    position: relative;
-
-    .accent {
-        color: #7B4AE2;
-        animation: blink 1s infinite;
-    }
-
-    &::before {
-        content: '<';
-        position: absolute;
-        left: 0;
-        color: #7B4AE2;
-        opacity: 0.5;
-    }
+// Canvas de partículas (opcional)
+.particles-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
 }
 
+// Orbes decorativos glass
+.glass-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+  animation: float-orb 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+
+  &-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(123, 74, 226, 0.3), transparent 70%);
+    top: -10%;
+    left: -5%;
+    animation-delay: 0s;
+  }
+
+  &-2 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(35, 211, 250, 0.25), transparent 70%);
+    bottom: -10%;
+    right: -5%;
+    animation-delay: 7s;
+  }
+
+  &-3 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(123, 74, 226, 0.2), transparent 70%);
+    top: 50%;
+    right: 30%;
+    animation-delay: 14s;
+  }
+}
+
+@keyframes float-orb {
+  0%, 100% { 
+    transform: translate(0, 0) scale(1); 
+  }
+  25% { 
+    transform: translate(35px, -35px) scale(1.1); 
+  }
+  50% { 
+    transform: translate(-25px, 25px) scale(0.9); 
+  }
+  75% { 
+    transform: translate(25px, 35px) scale(1.05); 
+  }
+}
+
+// Container principal
 .cyber-grid {
-    max-width: 1400px;
-    margin: 0 auto;
-    position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
+// Header de la sección
+.section-title {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 5rem;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(135deg, #fff 0%, rgba(123, 74, 226, 0.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInDown 1s cubic-bezier(0.4, 0, 0.2, 1);
+
+  .accent {
+    color: #7B4AE2;
+    animation: blink 1.5s infinite;
+    -webkit-text-fill-color: #7B4AE2;
+  }
+
+  // Badge superior
+  &::before {
+    content: '📧 Contáctame';
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.6rem 1.5rem;
+    background: rgba(15, 15, 20, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(123, 74, 226, 0.3);
+    border-radius: 30px;
+    color: rgba(255, 255, 255, 0.8);
+    box-shadow: 
+      0 8px 25px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+  }
+
+  // Línea decorativa
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #7B4AE2, #23D3FA, transparent);
+    border-radius: 2px;
+    animation: pulse-line 2s ease-in-out infinite;
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-line {
+  0%, 100% { opacity: 1; transform: translateX(-50%) scaleX(1); }
+  50% { opacity: 0.6; transform: translateX(-50%) scaleX(1.2); }
+}
+
+// Subtítulo descriptivo
+.section-subtitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+// Grid de contacto
 .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  padding: 2rem 0;
 }
 
+// Card de contacto con glass effect
 .contact-card {
-    position: relative;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(123, 74, 226, 0.2);
-    border-radius: 12px;
-    padding: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    text-decoration: none;
-    overflow: hidden;
-    transition: transform 0.3s ease;
+  position: relative;
+  background: rgba(15, 15, 20, 0.6);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1.5px solid rgba(123, 74, 226, 0.3);
+  border-radius: 28px;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 1px 0 rgba(255, 255, 255, 0.08) inset;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
 
-    &:hover {
-        transform: translateY(-5px);
+  &:nth-child(1) { animation-delay: 0.1s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+  &:nth-child(4) { animation-delay: 0.4s; }
 
-        .card-glitch {
-            opacity: 1;
-        }
-
-        .icon-container {
-            background: rgba(123, 74, 226, 0.2);
-            transform: scale(1.1);
-        }
-    }
-}
-
-.card-glitch {
+  // Gradiente de fondo
+  &::before {
+    content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(45deg, 
-        rgba(123, 74, 226, 0.1),
-        rgba(35, 211, 250, 0.1)
-    );
+    background: linear-gradient(135deg,
+      rgba(123, 74, 226, 0.05) 0%,
+      transparent 50%,
+      rgba(35, 211, 250, 0.05) 100%);
     opacity: 0;
-    transition: opacity 0.3s ease;
-}
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
 
-.icon-container {
-    width: 60px;
-    height: 60px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(123, 74, 226, 0.1);
-    transition: all 0.3s ease;
+  &:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(123, 74, 226, 0.6);
+    box-shadow: 
+      0 30px 80px rgba(123, 74, 226, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+      0 1px 0 rgba(255, 255, 255, 0.15) inset;
 
-    i {
-        font-size: 1.8rem;
-        color: #7B4AE2;
-    }
-}
-
-.contact-info {
-    h3 {
-        color: #fff;
-        font-size: 1.4rem;
-        margin: 0 0 0.5rem;
-        font-family: 'Space Grotesk', sans-serif;
+    &::before {
+      opacity: 1;
     }
 
-    p {
-        color: rgba(255, 255, 255, 0.7);
-        margin: 0;
-        font-family: 'Space Mono', monospace;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .contact-section {
-        padding: 4rem 1rem;
+    .card-glitch {
+      opacity: 1;
+      animation: glitchMove 0.3s ease;
     }
 
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-card {
-        padding: 1.5rem;
+    .glass-shine {
+      transform: translateX(100%) translateY(-100%);
     }
 
     .icon-container {
-        width: 50px;
-        height: 50px;
-
-        i {
-            font-size: 1.5rem;
-        }
+      transform: scale(1.15) rotate(5deg);
+      border-color: rgba(123, 74, 226, 0.6);
+      box-shadow: 0 15px 40px rgba(123, 74, 226, 0.5);
     }
 
-    .contact-info {
-        h3 {
-            font-size: 1.2rem;
-        }
-
-        p {
-            font-size: 0.85rem;
-        }
+    .contact-info h3 {
+      background-position: 200% center;
     }
+  }
+
+  &:active {
+    transform: translateY(-8px) scale(1.01);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Efecto glitch
+.card-glitch {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg,
+    transparent 0%,
+    rgba(123, 74, 226, 0.1) 45%,
+    rgba(35, 211, 250, 0.1) 55%,
+    transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+@keyframes glitchMove {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-2px, 2px); }
+  50% { transform: translate(2px, -2px); }
+  75% { transform: translate(-2px, -2px); }
+}
+
+// Efecto shine glass
+.glass-shine {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%);
+  transform: translateX(-100%) translateY(100%);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+// Contenedor de icono
+.icon-container {
+  width: 75px;
+  height: 75px;
+  min-width: 75px;
+  border-radius: 22px;
+  background: rgba(123, 74, 226, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1.5px solid rgba(123, 74, 226, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+      rgba(123, 74, 226, 0.2) 0%, 
+      rgba(35, 211, 250, 0.2) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  i {
+    font-size: 2rem;
+    background: linear-gradient(135deg, #7B4AE2 0%, #23D3FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+  }
+}
+
+.contact-card:hover .icon-container::before {
+  opacity: 1;
+}
+
+// Info de contacto
+.contact-info {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+
+  h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+    background: linear-gradient(135deg, #fff 0%, rgba(123, 74, 226, 0.8) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: background-position 0.5s ease;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 500;
+    word-break: break-word;
+  }
+}
+
+// Badge de estado (opcional - online/offline)
+.status-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #23D3FA;
+  box-shadow: 
+    0 0 0 3px rgba(35, 211, 250, 0.2),
+    0 0 15px rgba(35, 211, 250, 0.5);
+  animation: pulse-status 2s ease-in-out infinite;
+
+  &.offline {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 0 0 3px rgba(255, 255, 255, 0.1),
+      0 0 15px rgba(255, 255, 255, 0.2);
+    animation: none;
+  }
+}
+
+@keyframes pulse-status {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+// CTA Section (opcional - formulario de contacto)
+.cta-section {
+  margin-top: 4rem;
+  text-align: center;
+  padding: 3rem;
+  background: rgba(15, 15, 20, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(123, 74, 226, 0.2);
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+      rgba(123, 74, 226, 0.05) 0%,
+      transparent 50%,
+      rgba(35, 211, 250, 0.05) 100%);
+  }
+
+  h3 {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: 'Space Grotesk', sans-serif;
+    position: relative;
+    z-index: 1;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: rgba(123, 74, 226, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1.5px solid rgba(123, 74, 226, 0.4);
+    border-radius: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, 
+        rgba(123, 74, 226, 0.3) 0%, 
+        rgba(35, 211, 250, 0.3) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      border-color: rgba(123, 74, 226, 0.6);
+      box-shadow: 0 15px 40px rgba(123, 74, 226, 0.4);
+
+      &::before {
+        opacity: 1;
+      }
+
+      i {
+        transform: translateX(3px);
+      }
+    }
+
+    i {
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    span {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+// RESPONSIVE
+@media (max-width: 1200px) {
+  .contact-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 968px) {
+  .contact-section {
+    padding: 6rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+
+    &::before {
+      top: -45px;
+      font-size: 0.85rem;
+      padding: 0.5rem 1.25rem;
+    }
+  }
+
+  .contact-grid {
+    gap: 1.75rem;
+  }
+
+  .contact-card {
+    padding: 2rem;
+  }
+
+  .icon-container {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+
+    i {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-section {
+    padding: 5rem 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+
+    &::before {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none;
+      display: block;
+      margin-bottom: 1.5rem;
+      font-size: 0.8rem;
+    }
+
+    &::after {
+      width: 80px;
+      bottom: -15px;
+    }
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-card {
+    padding: 1.75rem;
+    border-radius: 24px;
+  }
+
+  .icon-container {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    border-radius: 18px;
+
+    i {
+      font-size: 1.6rem;
+    }
+  }
+
+  .contact-info {
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+  }
+
+  .cta-section {
+    padding: 2rem 1.5rem;
+    margin-top: 3rem;
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+
+    .cta-button {
+      padding: 0.85rem 2rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  .glass-orb {
+    filter: blur(80px);
+    opacity: 0.25;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 4rem 0.75rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+
+    &::before {
+      font-size: 0.75rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  .contact-card {
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .icon-container {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+
+    i {
+      font-size: 1.5rem;
+    }
+  }
+
+  .contact-info {
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+// Accesibilidad y preferencias de movimiento reducido
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .particles-canvas {
+    display: none;
+  }
+
+  .glass-orb {
+    animation: none;
+  }
+}
+
+// Modo de alto contraste
+@media (prefers-contrast: high) {
+  .contact-card {
+    border-width: 2px;
+    border-color: rgba(123, 74, 226, 0.8);
+  }
+
+  .icon-container {
+    border-width: 2px;
+  }
+}
+
+// Dark mode específico
+@media (prefers-color-scheme: dark) {
+  .contact-section {
+    background: linear-gradient(135deg,
+      rgba(5, 5, 8, 1) 0%,
+      rgba(10, 10, 15, 1) 50%,
+      rgba(5, 5, 8, 1) 100%);
+  }
 }

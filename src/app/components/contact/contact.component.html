@@ -1,52 +1,62 @@
 <section class="contact-section" id="contact">
-    <div class="cyber-grid">
-        <h2 class="section-title">Contacto<span class="accent">_</span></h2>
-        
-        <div class="contact-grid">
-            <a href="mailto:agustinaconstantino55@gmail.com" class="contact-card">
-                <div class="card-glitch"></div>
-                <div class="icon-container">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <div class="contact-info">
-                    <h3>Email</h3>
-                    <p>agustinaconstantino55gmail.com</p>
-                </div>
-            </a>
+  <!-- Canvas de partículas glass -->
+  <canvas #particlesCanvas class="particles-canvas"></canvas>
+  
+  <!-- Orbes decorativos glass -->
+  <div class="glass-orb glass-orb-1"></div>
+  <div class="glass-orb glass-orb-2"></div>
+  <div class="glass-orb glass-orb-3"></div>
 
-            <a href="https://wa.me/+529651064606" target="_blank" class="contact-card">
-                <div class="card-glitch"></div>
-                <div class="icon-container">
-                    <i class="fab fa-whatsapp"></i>
-                </div>
-                <div class="contact-info">
-                    <h3>WhatsApp</h3>
-                </div>
-            </a>
-
-            <a href="https://www.linkedin.com/in/victor-fabricio-perez-constantino-8727512b6/" 
-               target="_blank" 
-               class="contact-card">
-                <div class="card-glitch"></div>
-                <div class="icon-container">
-                    <i class="fab fa-linkedin-in"></i>
-                </div>
-                <div class="contact-info">
-                    <h3>LinkedIn</h3>
-                    <p>Victor Fabricio Perez</p>
-                </div>
-            </a>
-
-            <a href="tel:+52TUNUMERO" class="contact-card">
-                <div class="card-glitch"></div>
-                <div class="icon-container">
-                    <i class="fas fa-phone"></i>
-                </div>
-                <div class="contact-info">
-                    <h3>Teléfono</h3>
-                    <p>+52 965 106 4606</p>
-                </div>
-            </a>
-        </div>
+  <div class="cyber-grid">
+    <!-- Header mejorado -->
+    <div class="section-header">
+      <h2 class="section-title">
+        Contacto<span class="accent">_</span>
+      </h2>
+      <p class="section-subtitle">
+        ¿Tienes un proyecto en mente? ¡Hablemos y hagámoslo realidad!
+      </p>
     </div>
+    
+    <!-- Grid de contacto dinámico con *ngFor -->
+    <div class="contact-grid">
+      <a 
+        *ngFor="let contact of contactMethods; let i = index"
+        [href]="contact.link"
+        [target]="contact.external ? '_blank' : '_self'"
+        [rel]="contact.external ? 'noopener noreferrer' : ''"
+        class="contact-card"
+        [style.animation-delay.s]="(i + 1) * 0.1"
+        [attr.aria-label]="contact.ariaLabel">
+        
+        <!-- Efectos glass -->
+        <div class="card-glitch"></div>
+        <div class="glass-shine"></div>
+        
+        <!-- Icono -->
+        <div class="icon-container">
+          <i [class]="contact.icon"></i>
+        </div>
+        
+        <!-- Información -->
+        <div class="contact-info">
+          <h3>{{ contact.title }}</h3>
+          <p *ngIf="contact.subtitle">{{ contact.subtitle }}</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- CTA principal -->
+    <div class="cta-section">
+      <h3>¿Listo para trabajar juntos?</h3>
+      <p>
+        Estoy disponible para proyectos freelance, colaboraciones y oportunidades laborales. 
+        Contáctame y construyamos algo increíble.
+      </p>
+      <a [href]="'https://wa.me/529651064606'" class="cta-button">
+        <i class="fas fa-paper-plane"></i>
+        <span>Enviar Mensaje</span>
+      </a>
+    </div>
+  </div>
 </section>

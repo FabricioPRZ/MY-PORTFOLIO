@@ -1,53 +1,68 @@
 <section class="certifications-section" id="certifications">
-    <div class="cyber-grid">
-        <h2 class="section-title">Certificaciones<span class="accent">_</span></h2>
+  <!-- Canvas de partículas glass -->
+  <canvas #particlesCanvas class="particles-canvas"></canvas>
+  
+  <!-- Orbes decorativos glass -->
+  <div class="glass-orb glass-orb-1"></div>
+  <div class="glass-orb glass-orb-2"></div>
+  <div class="glass-orb glass-orb-3"></div>
 
-        <div class="certifications-container">
-            <article class="cert-card">
-                <div class="cert-content">
-                    <div class="cert-header">
-                        <div class="cert-icon">
-                            <i class="fab fa-google"></i>
-                        </div>
-                        <div class="cert-info">
-                            <h3>Google UX Design</h3>
-                            <span class="issuer">Google - Coursera</span>
-                        </div>
-                    </div>
-                    <div class="cert-details">
-                        <p>Professional Certificate in UX Design fundamentals and best practices.</p>
-                        <a href="https://coursera.org/share/48d62de9aa572524545fd4f56c765c03" 
-                           target="_blank" 
-                           class="verify-link">
-                            <span>Verificar</span>
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="cert-card">
-                <div class="cert-content">
-                    <div class="cert-header">
-                        <div class="cert-icon">
-                            <i class="fab fa-java"></i>
-                        </div>
-                        <div class="cert-info">
-                            <h3>Introducción a Java</h3>
-                            <span class="issuer">UNAM - Coursera</span>
-                        </div>
-                    </div>
-                    <div class="cert-details">
-                        <p>Fundamentos de programación en Java y conceptos orientados a objetos.</p>
-                        <a href="https://coursera.org/share/ef930db05d796eaf03a453d3f4d47d16" 
-                           target="_blank" 
-                           class="verify-link">
-                            <span>Verificar</span>
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-            </article>
+  <div class="cyber-grid">
+    <!-- Header mejorado -->
+    <h2 class="section-title">
+      Certificaciones<span class="accent">_</span>
+    </h2>
+    
+    <!-- Grid de certificaciones dinámico con *ngFor -->
+    <div class="certifications-container">
+      <article 
+        *ngFor="let cert of certifications; let i = index" 
+        class="cert-card"
+        [style.animation-delay.s]="(i + 1) * 0.1">
+        
+        <div class="cert-content">
+          <!-- Efectos glass -->
+          <div class="glass-shine"></div>
+          
+          <!-- Badge de verificado -->
+          <div 
+            *ngIf="cert.verified" 
+            class="verified-badge" 
+            title="Certificación verificada">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          
+          <!-- Header de certificación -->
+          <div class="cert-header">
+            <div class="cert-icon">
+              <i [class]="cert.icon"></i>
+            </div>
+            <div class="cert-info">
+              <h3>{{ cert.title }}</h3>
+              <span class="issuer">{{ cert.issuer }} - {{ cert.organization }}</span>
+            </div>
+          </div>
+          
+          <!-- Detalles de certificación -->
+          <div class="cert-details">
+            <p>{{ cert.description }}</p>
+            <a [href]="cert.verifyUrl" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="verify-link"
+               [attr.aria-label]="'Verificar certificación de ' + cert.title">
+              <span>Verificar Certificación</span>
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
         </div>
+      </article>
     </div>
+    
+    <!-- Mensaje si no hay certificaciones -->
+    <div *ngIf="certifications.length === 0" class="no-certifications">
+      <i class="fas fa-certificate"></i>
+      <p>No hay certificaciones disponibles en este momento.</p>
+    </div>
+  </div>
 </section>

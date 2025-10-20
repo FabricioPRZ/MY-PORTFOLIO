@@ -1,105 +1,90 @@
 <section class="skills-section" id="skills">
-    <div class="cyber-grid">
-        <h2 class="section-title">Habilidades<span class="accent">_</span></h2>
-        
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3 class="category-title">Languages<span class="cyber-slash">//</span></h3>
-                <div class="skills-grid">
-                    <div class="skill-item" data-skill="TypeScript">
-                        <div class="skill-border"></div>
-                        <div class="skill-content">
-                            <i class="devicon-typescript-plain"></i>
-                            <span class="skill-name">TypeScript</span>
-                            <div class="skill-level" style="--level: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-skill="JavaScript">
-                        <div class="skill-border"></div>
-                        <div class="skill-content">
-                            <i class="devicon-javascript-plain"></i>
-                            <span class="skill-name">JavaScript</span>
-                            <div class="skill-level" style="--level: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-skill="Python">
-                        <div class="skill-border"></div>
-                        <div class="skill-content">
-                            <i class="devicon-python-plain"></i>
-                            <span class="skill-name">Python</span>
-                            <div class="skill-level" style="--level: 75%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-skill="Java">
-                        <div class="skill-border"></div>
-                        <div class="skill-content">
-                            <i class="devicon-java-plain"></i>
-                            <span class="skill-name">Java</span>
-                            <div class="skill-level" style="--level: 70%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-skill="Go">
-                        <div class="skill-border"></div>
-                        <div class="skill-content">
-                            <i class="devicon-go-plain"></i>
-                            <span class="skill-name">Go</span>
-                            <div class="skill-level" style="--level: 80%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- Canvas de partículas glass -->
+  <canvas #particlesCanvas class="particles-canvas"></canvas>
+  
+  <!-- Orbes decorativos glass -->
+  <div class="glass-orb orb-1"></div>
+  <div class="glass-orb orb-2"></div>
+  <div class="glass-orb orb-3"></div>
 
-            <div class="skill-category">
-                <h3 class="category-title">Frameworks<span class="cyber-slash">//</span></h3>
-                <div class="skills-grid">
-                    <div class="skill-item" data-skill="Angular">
-                        <div class="skill-border"></div>
-                        <div class="skill-content">
-                            <i class="devicon-angularjs-plain"></i>
-                            <span class="skill-name">Angular</span>
-                            <div class="skill-level" style="--level: 95%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-skill="React">
-                        <div class="skill-border"></div>
-                        <div class="skill-content">
-                            <i class="devicon-react-original"></i>
-                            <span class="skill-name">React</span>
-                            <div class="skill-level" style="--level: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-skill="Vue">
-                        <div class="skill-border"></div>
-                        <div class="skill-content">
-                            <i class="devicon-vuejs-plain"></i>
-                            <span class="skill-name">Vue</span>
-                            <div class="skill-level" style="--level: 85%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skill-category">
-                <h3 class="category-title">Tools<span class="cyber-slash">//</span></h3>
-                <div class="skills-grid">
-                    <div class="skill-item" data-skill="Git">
-                        <div class="skill-border"></div>
-                        <div class="skill-content">
-                            <i class="devicon-git-plain"></i>
-                            <span class="skill-name">Git</span>
-                            <div class="skill-level" style="--level: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item" data-skill="Figma">
-                        <div class="skill-border"></div>
-                        <div class="skill-content">
-                            <i class="devicon-figma-plain"></i>
-                            <span class="skill-name">Figma</span>
-                            <div class="skill-level" style="--level: 90%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="cyber-grid">
+    <!-- Header de la sección -->
+    <div class="section-header">
+      <h2 class="section-title">
+        <span class="title-bracket">&lt;</span>
+        Habilidades
+        <span class="accent">_</span>
+        <span class="title-bracket">&gt;</span>
+      </h2>
+      <p class="section-subtitle">
+        Tecnologías y herramientas que domino
+      </p>
     </div>
+    
+    <!-- Categorías de habilidades -->
+    <div class="skills-container">
+      <div 
+        *ngFor="let category of skillCategories; let categoryIndex = index" 
+        class="skill-category"
+        [style.animation-delay.s]="categoryIndex * 0.15">
+        
+        <!-- Título de categoría -->
+        <div class="category-header">
+          <h3 class="category-title">
+            <span class="category-icon">{{ categoryIndex === 0 ? '💻' : categoryIndex === 1 ? '⚡' : '🛠️' }}</span>
+            {{ category.title }}
+            <span class="cyber-slash">//</span>
+          </h3>
+          <div class="category-line"></div>
+        </div>
+        
+        <!-- Grid de habilidades -->
+        <div class="skills-grid">
+          <div 
+            *ngFor="let skill of category.skills; let skillIndex = index"
+            class="skill-item glass-card"
+            [attr.data-skill]="skill.name"
+            [style.animation-delay.s]="(categoryIndex * 0.3) + (skillIndex * 0.1)">
+            
+            <!-- Borde animado -->
+            <div class="skill-border"></div>
+            
+            <!-- Efecto de brillo -->
+            <div class="skill-shine"></div>
+            
+            <!-- Contenido de la habilidad -->
+            <div class="skill-content">
+              <!-- Icono -->
+              <div class="skill-icon-wrapper">
+                <i [class]="skill.icon"></i>
+                <div class="icon-glow"></div>
+              </div>
+              
+              <!-- Nombre -->
+              <span class="skill-name">{{ skill.name }}</span>
+              
+              <!-- Barra de nivel -->
+              <div class="skill-level-container">
+                <div class="skill-level-bg">
+                  <div 
+                    class="skill-level-fill"
+                    [style.width.%]="getSkillLevel(skill.name)">
+                    <div class="level-shine"></div>
+                  </div>
+                </div>
+                <span class="skill-percentage">{{ skill.level }}%</span>
+              </div>
+            </div>
+
+            <!-- Partículas flotantes en hover -->
+            <div class="hover-particles">
+              <div class="hover-particle"></div>
+              <div class="hover-particle"></div>
+              <div class="hover-particle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

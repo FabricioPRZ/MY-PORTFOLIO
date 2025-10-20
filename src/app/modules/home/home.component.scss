@@ -1,9 +1,40 @@
-.social-media-wrapper {
+// DESKTOP - Sidebar fijo
+.social-media-wrapper.desktop-only {
     position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
     z-index: 100;
     pointer-events: none;
+    display: block;
 
     app-social-media {
         pointer-events: all;
+    }
+}
+
+// MOBILE - Ocultar sidebar
+.social-media-wrapper.mobile-only {
+    display: none;
+}
+
+// RESPONSIVE
+@media (max-width: 968px) {
+    // Ocultar sidebar en mobile
+    .social-media-wrapper.desktop-only {
+        display: none;
+    }
+
+    // Mostrar dock al final en mobile
+    .social-media-wrapper.mobile-only {
+        display: block;
+        position: relative;
+        z-index: 100;
+        pointer-events: none;
+        width: 100%;
+
+        app-social-media {
+            pointer-events: all;
+        }
     }
 }
