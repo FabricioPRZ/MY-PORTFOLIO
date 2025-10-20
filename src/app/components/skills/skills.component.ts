@@ -248,7 +248,8 @@ export class SkillsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private setupIntersectionObserver(): void {
     const options = {
-      threshold: 0.2
+      threshold: 0.1, // Threshold más bajo para pantallas pequeñas
+      rootMargin: '0px 0px -100px 0px' // Trigger antes de que esté completamente visible
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -260,10 +261,16 @@ export class SkillsComponent implements OnInit, AfterViewInit, OnDestroy {
       });
     }, options);
 
-    const section = document.querySelector('.skills-section');
-    if (section) {
-      observer.observe(section);
-    }
+    // Observar la primera categoría de skills en lugar de toda la sección
+    this.observerTimeout = setTimeout(() => {
+      const firstCategory = document.querySelector('.skill-category');
+      if (firstCategory) {
+        observer.observe(firstCategory);
+      } else {
+        // Fallback: animar después de un delay si no se encuentra el elemento
+        this.animateSkillLevels();
+      }
+    }, 100);
   }
 
   private animateSkillLevels(): void {
