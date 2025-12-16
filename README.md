@@ -5,7 +5,6 @@
 [![Live Demo](https://img.shields.io/badge/demo-live-success?style=for-the-badge)](https://fabricio-prz-dev.vercel.app/)
 [![Angular](https://img.shields.io/badge/Angular-17+-DD0031?style=for-the-badge&logo=angular)](https://angular.io/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
 
 <div align="center">
   <img src="public/logo.png" alt="Fabricio Pérez Logo" width="120" />
