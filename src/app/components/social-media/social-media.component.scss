@@ -3,7 +3,6 @@
   z-index: 100;
 }
 
-// Contenedor fijo lateral (solo desktop)
 .social-media-container {
   position: fixed;
   left: 2rem;
@@ -11,20 +10,20 @@
   z-index: 100;
   animation: fadeInLeft 1s cubic-bezier(0.4, 0, 0.2, 1) 0.5s backwards;
 
-  // Línea vertical decorativa
+  // Línea vertical decorativa con degradado dorado
   &::after {
     content: '';
     width: 2px;
     height: 90px;
     background: linear-gradient(
       to top,
-      rgba(123, 74, 226, 0.8),
-      rgba(123, 74, 226, 0)
+      rgba(201, 169, 97, 0.8),
+      rgba(201, 169, 97, 0)
     );
     display: block;
     margin: 0 auto;
     border-radius: 2px;
-    box-shadow: 0 0 10px rgba(123, 74, 226, 0.3);
+    box-shadow: 0 0 10px rgba(201, 169, 97, 0.3);
   }
 }
 
@@ -39,7 +38,6 @@
   }
 }
 
-// Container de links
 .social-links {
   display: flex;
   flex-direction: column;
@@ -48,7 +46,6 @@
   padding-bottom: 2rem;
 }
 
-// Link individual con glass effect
 .social-link {
   position: relative;
   width: 50px;
@@ -62,7 +59,7 @@
   background: rgba(15, 15, 20, 0.6);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1.5px solid rgba(123, 74, 226, 0.3);
+  border: 1.5px solid rgba(201, 169, 97, 0.3);
   border-radius: 14px;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -71,21 +68,21 @@
     0 0 0 1px rgba(255, 255, 255, 0.05) inset,
     0 1px 0 rgba(255, 255, 255, 0.08) inset;
 
-  // Gradiente de fondo
+  // Gradiente de fondo dorado
   &::before {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg,
-      rgba(123, 74, 226, 0.1) 0%,
+      rgba(201, 169, 97, 0.1) 0%,
       transparent 50%,
-      rgba(35, 211, 250, 0.1) 100%);
+      rgba(212, 181, 117, 0.1) 100%);
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
   }
 
-  // Efecto shine
+  // Efecto shine dorado
   &::after {
     content: '';
     position: absolute;
@@ -95,7 +92,7 @@
     height: 200%;
     background: linear-gradient(45deg,
       transparent 30%,
-      rgba(255, 255, 255, 0.1) 50%,
+      rgba(201, 169, 97, 0.2) 50%,
       transparent 70%);
     transform: translateX(-100%) translateY(100%);
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -108,13 +105,12 @@
     transition: transform 0.3s ease;
   }
 
-  // Tooltip con glass effect
   .link-text {
     position: absolute;
     left: 60px;
     top: 50%;
     transform: translateY(-50%) translateX(-10px);
-    background: rgba(15, 15, 20, 0.9);
+    background: rgba(15, 15, 20, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     padding: 0.6rem 1.2rem;
@@ -127,7 +123,7 @@
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 600;
     color: white;
-    border: 1.5px solid rgba(123, 74, 226, 0.4);
+    border: 1.5px solid rgba(201, 169, 97, 0.4);
     box-shadow: 
       0 10px 30px rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -143,18 +139,17 @@
       transform: translateY(-50%) rotate(45deg);
       width: 12px;
       height: 12px;
-      background: rgba(15, 15, 20, 0.9);
-      border-left: 1.5px solid rgba(123, 74, 226, 0.4);
-      border-bottom: 1.5px solid rgba(123, 74, 226, 0.4);
+      background: rgba(15, 15, 20, 0.95);
+      border-left: 1.5px solid rgba(201, 169, 97, 0.4);
+      border-bottom: 1.5px solid rgba(201, 169, 97, 0.4);
     }
   }
 
-  // Hover states
   &:hover {
     transform: translateX(8px) scale(1.1);
-    border-color: rgba(123, 74, 226, 0.6);
+    border-color: rgba(201, 169, 97, 0.6);
     box-shadow: 
-      0 12px 35px rgba(123, 74, 226, 0.4),
+      0 12px 35px rgba(201, 169, 97, 0.4),
       0 0 0 1px rgba(255, 255, 255, 0.1) inset,
       0 1px 0 rgba(255, 255, 255, 0.15) inset;
 
@@ -181,11 +176,13 @@
     transform: translateX(8px) scale(1.05);
   }
 
-  // Colores específicos por red social
   &.github:hover {
     color: #fff;
     background: rgba(36, 41, 46, 0.3);
     border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 12px 35px rgba(255, 255, 255, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   }
 
   &.linkedin:hover {
@@ -201,6 +198,14 @@
     border-color: rgba(228, 64, 95, 0.5);
     box-shadow: 
       0 12px 35px rgba(228, 64, 95, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  }
+
+  &.email:hover {
+    color: #C9A961;
+    border-color: rgba(201, 169, 97, 0.6);
+    box-shadow: 
+      0 12px 35px rgba(201, 169, 97, 0.5),
       0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   }
 
@@ -235,19 +240,6 @@
       0 12px 35px rgba(88, 101, 242, 0.4),
       0 0 0 1px rgba(255, 255, 255, 0.1) inset;
   }
-
-  &.tiktok:hover {
-    color: #fff;
-    background: linear-gradient(135deg, #69C9D0 0%, #EE1D52 100%);
-    border-color: rgba(238, 29, 82, 0.5);
-  }
-}
-
-// Animación de entrada escalonada
-@for $i from 1 through 10 {
-  .social-link:nth-child(#{$i}) {
-    animation: fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1) #{0.5 + ($i * 0.1)}s backwards;
-  }
 }
 
 @keyframes fadeInScale {
@@ -261,7 +253,10 @@
   }
 }
 
-// RESPONSIVE
+.social-link {
+  animation: fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+}
+
 @media (max-width: 1024px) {
   .social-media-container {
     left: 1rem;
@@ -274,7 +269,6 @@
   }
 }
 
-// TABLET Y MÓVIL - Al final del contenido (no fijo)
 @media (max-width: 968px) {
   .social-media-section {
     position: relative;
@@ -288,7 +282,7 @@
     padding: 5rem 0 0;
     overflow: hidden;
 
-    // Efectos de fondo similares al resto
+    // Efectos de fondo dorados
     &::before {
       content: '';
       position: absolute;
@@ -296,7 +290,7 @@
       left: -10%;
       width: 400px;
       height: 400px;
-      background: radial-gradient(circle, rgba(123, 74, 226, 0.15), transparent 70%);
+      background: radial-gradient(circle, rgba(201, 169, 97, 0.12), transparent 70%);
       border-radius: 50%;
       filter: blur(100px);
       pointer-events: none;
@@ -309,7 +303,7 @@
       right: -10%;
       width: 350px;
       height: 350px;
-      background: radial-gradient(circle, rgba(35, 211, 250, 0.12), transparent 70%);
+      background: radial-gradient(circle, rgba(212, 181, 117, 0.1), transparent 70%);
       border-radius: 50%;
       filter: blur(100px);
       pointer-events: none;
@@ -327,9 +321,9 @@
     background: transparent;
     z-index: 1;
 
-    // Título decorativo
+    // Título decorativo dorado
     &::before {
-      content: '🔗 Conectemos';
+      content: '✨ Conectemos';
       position: absolute;
       top: -60px;
       left: 50%;
@@ -337,7 +331,7 @@
       font-size: 1.5rem;
       font-weight: 700;
       font-family: 'Space Grotesk', sans-serif;
-      background: linear-gradient(135deg, #fff 0%, rgba(123, 74, 226, 0.9) 100%);
+      background: linear-gradient(135deg, #fff 0%, rgba(201, 169, 97, 0.9) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -345,7 +339,7 @@
       pointer-events: none;
     }
 
-    // Línea decorativa arriba
+    // Línea decorativa dorada
     &::after {
       content: '';
       position: absolute;
@@ -354,8 +348,9 @@
       transform: translateX(-50%);
       width: 100px;
       height: 3px;
-      background: linear-gradient(90deg, transparent, #7B4AE2, #23D3FA, transparent);
+      background: linear-gradient(90deg, transparent, #C9A961, #D4B575, transparent);
       border-radius: 2px;
+      box-shadow: 0 0 10px rgba(201, 169, 97, 0.4);
     }
   }
 
@@ -403,8 +398,8 @@
         transform: translateX(-50%) rotate(45deg);
         border-left: none;
         border-bottom: none;
-        border-right: 1.5px solid rgba(123, 74, 226, 0.4);
-        border-top: 1.5px solid rgba(123, 74, 226, 0.4);
+        border-right: 1.5px solid rgba(201, 169, 97, 0.4);
+        border-top: 1.5px solid rgba(201, 169, 97, 0.4);
       }
     }
 
@@ -504,7 +499,6 @@
   }
 }
 
-// Accesibilidad
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -515,15 +509,13 @@
   }
 }
 
-// Modo de alto contraste
 @media (prefers-contrast: high) {
   .social-link {
     border-width: 2px;
-    border-color: rgba(123, 74, 226, 0.8);
+    border-color: rgba(201, 169, 97, 0.8);
   }
 }
 
-// Dark mode específico
 @media (prefers-color-scheme: dark) {
   .social-link {
     background: rgba(10, 10, 15, 0.7);

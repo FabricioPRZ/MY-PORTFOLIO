@@ -1,34 +1,39 @@
-<header class="portfolio-header">
-    <div class="glass-effect"></div>
-    <nav class="navbar">
-        <div class="logo-container">
-            <div class="logo-modern">
-                <img src="/logo.png" alt="FP Logo" />
-                <div class="logo-blur"></div>
-            </div>
-        </div>
+<header class="portfolio-header" [class.scrolled]="isScrolled">
+  <div class="glass-effect"></div>
+  
+  <nav class="navbar">
+    <a href="#inicio" class="logo-container" (click)="scrollToSection('inicio', $event)">
+      <div class="logo-modern">
+        <img src="/logo.png" alt="FP Logo" loading="eager" />
+        <div class="logo-glow"></div>
+      </div>
+    </a>
 
-        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-        <label for="menu-toggle" class="menu-icon">
-            <div class="hamburger"></div>
-        </label>
+    <button 
+      class="menu-toggle" 
+      [class.active]="isMobileMenuOpen"
+      (click)="toggleMobileMenu()"
+      [attr.aria-label]="isMobileMenuOpen ? 'Close menu' : 'Open menu'"
+      [attr.aria-expanded]="isMobileMenuOpen"
+    >
+      <span class="hamburger"></span>
+    </button>
 
-        <ul class="nav-links-modern">
-            <li><a href="#inicio" class="nav-link">
-                    <span class="link-text">Inicio</span>
-                </a></li>
-            <li><a href="#experience" class="nav-link">
-                    <span class="link-text">Experiencia</span>
-                </a></li>
-            <li><a href="#skills" class="nav-link">
-                    <span class="link-text">Habilidades</span>
-                </a></li>
-            <li><a href="#projects" class="nav-link">
-                    <span class="link-text">Proyectos</span>
-                </a></li>
-            <li><a href="#certifications" class="nav-link">
-                    <span class="link-text">Certificaciones</span>
-                </a></li>
-        </ul>
-    </nav>
+    <ul class="nav-links" [class.active]="isMobileMenuOpen">
+      <li *ngFor="let item of navItems; let i = index" [style.--delay]="i">
+        <a 
+          [href]="'#' + item.id" 
+          class="nav-link"
+          [class.active]="isActive(item.id)"
+          (click)="scrollToSection(item.id, $event)"
+        >
+          <span class="nav-icon">{{ item.icon }}</span>
+          <span class="nav-text">{{ item.label }}</span>
+          <span class="nav-indicator"></span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="nav-overlay" [class.active]="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
 </header>

@@ -1,144 +1,77 @@
-<section class="hero-section">
-  <!-- Canvas de partículas glass -->
-  <canvas #particlesCanvas class="particles-canvas"></canvas>
-  
-  <!-- Grid decorativo de fondo -->
-  <div class="hero-grid"></div>
-  
-  <!-- Orbes decorativos glass -->
-  <div class="background-orb orb-primary"></div>
-  <div class="background-orb orb-secondary"></div>
-  <div class="background-orb orb-tertiary"></div>
-  
-  <div class="hero-container">
-    <div class="hero-content">
-      <!-- Columna izquierda: Perfil con elementos decorativos -->
-      <div class="profile-section">
-        <div class="profile-wrapper">
-          <!-- Círculos decorativos glass -->
-          <div class="glass-orb orb-1"></div>
-          <div class="glass-orb orb-2"></div>
-          
-          <div class="profile-image">
-            <img [src]="heroData.profileImage" [alt]="heroData.name">
-            <div class="image-blur"></div>
-            <div class="shine-effect"></div>
-          </div>
-          
-          <!-- Stats cards con glass effect -->
-          <div class="stats-cards">
-            <div 
-              *ngFor="let stat of stats" 
-              class="stat-card glass-card">
-              <div class="stat-icon">
-                <i [class]="stat.icon"></i>
-              </div>
-              <div class="stat-info">
-                <span class="stat-number">{{ stat.number }}</span>
-                <span class="stat-label">{{ stat.label }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Badge flotante rediseñado -->
-        <div class="floating-badges">
-          <div 
-            *ngFor="let badge of badges" 
-            class="glass-badge"
-            [class.status-badge]="badge.hasStatus">
-            <span *ngIf="badge.icon" class="badge-icon">{{ badge.icon }}</span>
-            <span *ngIf="badge.hasStatus" class="status-dot"></span>
-            <span class="badge-text">{{ badge.text }}</span>
-          </div>
-        </div>
+<!-- hero.component.html -->
+<section class="hero" id="inicio">
+  <div class="hero-bg">
+    <div class="grid-pattern"></div>
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-main">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>{{ heroData.status }}</span>
       </div>
 
-      <!-- Columna derecha: Contenido principal -->
-      <div class="hero-text">
-        <!-- Etiqueta superior -->
-        <div class="hero-label glass-label">
-          <span class="label-dot"></span>
-          <span>{{ heroData.label }}</span>
-        </div>
-        
-        <h1>
-          <span class="title-line">{{ heroData.greeting }}</span>
-          <span class="title-name">{{ heroData.name }}</span>
-          <span class="title-gradient">{{ heroData.role }}</span>
-        </h1>
-        
-        <div class="description">
-          <p>
-            <span class="highlight-text">Desarrollador Full Stack</span> especializado en 
-            <strong>Angular</strong>, enfocado en crear aplicaciones web escalables 
-            con interfaces intuitivas y experiencias de usuario excepcionales.
-          </p>
-          <p>
-            Dominio de múltiples tecnologías: <strong>React, Vue, TypeScript, 
-            JavaScript, Python, Java y Go</strong>. Me adapto rápidamente a nuevos 
-            desafíos y disfruto trabajar en equipos colaborativos.
-          </p>
-        </div>
+      <h1 class="hero-title">
+        <span class="greeting">{{ heroData.greeting }}</span>
+        <span class="name">{{ heroData.name }}</span>
+        <span class="role">{{ heroData.role }}</span>
+      </h1>
 
-        <!-- Tech stack visual -->
-        <div class="tech-stack">
-          <span class="stack-label">Tech Stack:</span>
-          <div class="tech-icons">
-            <div class="tech-icon glass-icon" title="Angular">
-              <i class="fab fa-angular"></i>
-            </div>
-            <div class="tech-icon glass-icon" title="React">
-              <i class="fab fa-react"></i>
-            </div>
-            <div class="tech-icon glass-icon" title="Vue">
-              <i class="fab fa-vuejs"></i>
-            </div>
-            <div class="tech-icon glass-icon" title="TypeScript">
-              <i class="fab fa-js"></i>
-            </div>
-            <div class="tech-icon glass-icon" title="Python">
-              <i class="fab fa-python"></i>
-            </div>
-            <div class="tech-icon glass-icon" title="Node.js">
-              <i class="fab fa-node"></i>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Botones de acción con CV -->
-        <div class="cta-buttons">
-          <a 
-            (click)="scrollToProjects()" 
-            class="primary-btn glass-button">
-            <span class="btn-content">
-              <i class="fas fa-rocket"></i>
-              <span>Ver Proyectos</span>
-            </span>
-            <div class="btn-glow"></div>
-          </a>
-          
-          <a 
-            [href]="heroData.cvPath" 
-            download="Fabricio-Perez-CV.pdf"
-            class="secondary-btn glass-button">
-            <span class="btn-content">
-              <i class="fas fa-download"></i>
-              <span>Descargar CV</span>
-            </span>
-            <div class="btn-shine"></div>
-          </a>
-          
-          <a 
-            (click)="scrollToContact()" 
-            class="tertiary-btn glass-button"
-            title="Contactar">
-            <span class="btn-content">
-              <i class="fas fa-envelope"></i>
-            </span>
-          </a>
+      <p class="hero-desc">{{ heroData.description }}</p>
+
+      <div class="hero-tech">
+        <span *ngFor="let tech of technologies" class="tech-tag">
+          {{ tech }}
+        </span>
+      </div>
+
+      <div class="hero-actions">
+        <button (click)="scrollTo('projects')" class="btn btn-primary">
+          <span>View Projects</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+        <a [href]="heroData.cvPath" download class="btn btn-outline">
+          <span>Download CV</span>
+          <i class="fas fa-download"></i>
+        </a>
+      </div>
+
+      <div class="hero-metrics">
+        <div *ngFor="let metric of metrics" class="metric">
+          <span class="metric-value">{{ metric.value }}</span>
+          <span class="metric-label">{{ metric.label }}</span>
         </div>
       </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="profile-card">
+        <div class="profile-image">
+          <img [src]="heroData.image" [alt]="heroData.name">
+          <div class="image-glow"></div>
+        </div>
+        <div class="card-shine"></div>
+      </div>
+      
+      <div class="floating-elements">
+        <div class="float-item item-1">
+          <i class="fas fa-code"></i>
+        </div>
+        <div class="float-item item-2">
+          <i class="fas fa-palette"></i>
+        </div>
+        <div class="float-item item-3">
+          <i class="fas fa-rocket"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator" (click)="scrollTo('experience')">
+    <div class="mouse">
+      <div class="wheel"></div>
     </div>
   </div>
 </section>

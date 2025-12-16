@@ -20,7 +20,7 @@ interface SocialLink {
 })
 export class SocialMediaComponent implements OnInit {
   
-  // Lista de redes sociales
+  // Lista de redes sociales - Actualizada con tus URLs
   socialLinks: SocialLink[] = [
     {
       name: 'GitHub',
@@ -48,11 +48,21 @@ export class SocialMediaComponent implements OnInit {
       external: true,
       ariaLabel: 'Visitar perfil de Instagram',
       color: '#E4405F'
+    },
+    {
+      name: 'Email',
+      platform: 'email',
+      icon: 'fas fa-envelope',
+      url: 'mailto:agustinaconstantino55@gmail.com',
+      external: false,
+      ariaLabel: 'Enviar correo electrónico',
+      color: '#C9A961'
     }
   ];
 
   ngOnInit(): void {
     // Inicialización del componente
+    this.logSocialMediaStats();
   }
 
   // ============================================
@@ -109,5 +119,12 @@ export class SocialMediaComponent implements OnInit {
    */
   filterSocialLinks(filter: (link: SocialLink) => boolean): SocialLink[] {
     return this.socialLinks.filter(filter);
+  }
+
+  /**
+   * Log de estadísticas de redes sociales (para debug)
+   */
+  private logSocialMediaStats(): void {
+    console.log(`📱 Social Media Links: ${this.getTotalSocialLinks()}`);
   }
 }

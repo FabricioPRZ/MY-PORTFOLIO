@@ -1,68 +1,60 @@
-<section class="experience-section" id="experience">
-  <!-- Canvas de partículas glass -->
-  <canvas #particlesCanvas class="particles-canvas"></canvas>
-  
-  <!-- Orbes decorativos glass -->
-  <div class="glass-orb glass-orb-1"></div>
-  <div class="glass-orb glass-orb-2"></div>
-  <div class="glass-orb glass-orb-3"></div>
+<!-- experience.component.html -->
+<section class="experience" id="experience">
+  <div class="experience-bg">
+    <div class="grid-pattern"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+  </div>
 
-  <div class="cyber-grid">
-    <!-- Header mejorado -->
-    <div class="section-header">
+  <div class="experience-container">
+    <header class="section-header">
+      <div class="header-badge">
+        <span class="badge-icon">💼</span>
+        <span>Professional Journey</span>
+      </div>
       <h2 class="section-title">
-        Experiencia<span class="accent">_</span>
+        Work Experience
       </h2>
       <p class="section-subtitle">
-        Transformando ideas en soluciones digitales innovadoras
+        Building innovative digital solutions with cutting-edge technologies
       </p>
-    </div>
-    
-    <!-- Grid de experiencias con *ngFor -->
-    <div class="experience-hexgrid">
+    </header>
+
+    <div class="timeline">
+      <div class="timeline-line"></div>
+      
       <article 
         *ngFor="let exp of experiences; let i = index" 
-        class="hex-item"
-        [style.animation-delay.s]="(i + 1) * 0.2">
+        class="experience-card"
+        [class.card-right]="i % 2 !== 0">
         
-        <div class="hex-content">
-          <!-- Efectos glass -->
-          <div class="hex-glitch"></div>
-          <div class="glass-shine"></div>
-          
-          <!-- Año -->
-          <span class="cyber-date">{{ exp.year }}</span>
-          
-          <!-- Título -->
-          <h3>{{ exp.title }}</h3>
-          
-          <!-- Compañía -->
-          <div class="company">
-            <span class="cyber-tag">{{ exp.company }}</span>
-            <span class="separator">//</span>
-            <span class="company-type">{{ exp.companyType }}</span>
+        <div class="card-marker">
+          <div class="marker-dot"></div>
+          <span class="marker-year">{{ exp.year }}</span>
+        </div>
+
+        <div class="card-content">
+          <div class="card-header">
+            <h3 class="role-title">{{ exp.role }}</h3>
+            <div class="company-info">
+              <span class="company-name">{{ exp.company }}</span>
+              <span class="company-type">{{ exp.type }}</span>
+            </div>
           </div>
-          
-          <!-- Responsabilidades -->
-          <ul class="cyber-list">
-            <li *ngFor="let resp of exp.responsibilities">
-              {{ resp }}
+
+          <ul class="achievements-list">
+            <li *ngFor="let achievement of exp.achievements">
+              {{ achievement }}
             </li>
           </ul>
-          
-          <!-- Stack tecnológico -->
+
           <div class="tech-stack">
-            <div 
-              *ngFor="let tech of exp.technologies" 
-              class="tech-pill">
+            <span *ngFor="let tech of exp.stack" class="tech-badge">
               {{ tech }}
-            </div>
+            </span>
           </div>
         </div>
       </article>
     </div>
-
-    <!-- Timeline decorativa -->
-    <div class="timeline-line"></div>
   </div>
 </section>

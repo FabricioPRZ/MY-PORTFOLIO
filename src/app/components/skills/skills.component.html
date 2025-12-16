@@ -1,88 +1,71 @@
-<section class="skills-section" id="skills">
-  <!-- Canvas de partículas glass -->
-  <canvas #particlesCanvas class="particles-canvas"></canvas>
-  
-  <!-- Orbes decorativos glass -->
-  <div class="glass-orb orb-1"></div>
-  <div class="glass-orb orb-2"></div>
-  <div class="glass-orb orb-3"></div>
+<section class="skills" id="skills">
+  <div class="skills-bg">
+    <div class="grid-pattern"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+  </div>
 
-  <div class="cyber-grid">
-    <!-- Header de la sección -->
-    <div class="section-header">
+  <div class="skills-container">
+    <header class="section-header">
+      <div class="header-badge">
+        <span class="badge-icon">⚡</span>
+        <span>Skills & Technologies</span>
+      </div>
       <h2 class="section-title">
-        <span class="title-bracket">&lt;</span>
-        Habilidades
-        <span class="accent">_</span>
-        <span class="title-bracket">&gt;</span>
+        What I Work With
       </h2>
       <p class="section-subtitle">
-        Tecnologías y herramientas que domino
+        Technologies and tools I use to build amazing products
       </p>
-    </div>
-    
-    <!-- Categorías de habilidades -->
-    <div class="skills-container">
-      <div 
-        *ngFor="let category of skillCategories; let categoryIndex = index" 
-        class="skill-category"
-        [style.animation-delay.s]="categoryIndex * 0.15">
-        
-        <!-- Título de categoría -->
-        <div class="category-header">
-          <h3 class="category-title">
-            <span class="category-icon">{{ categoryIndex === 0 ? '💻' : categoryIndex === 1 ? '⚡' : '🛠️' }}</span>
-            {{ category.title }}
-            <span class="cyber-slash">//</span>
-          </h3>
-          <div class="category-line"></div>
-        </div>
-        
-        <!-- Grid de habilidades -->
-        <div class="skills-grid">
-          <div 
-            *ngFor="let skill of category.skills; let skillIndex = index"
-            class="skill-item glass-card"
-            [attr.data-skill]="skill.name"
-            [style.animation-delay.s]="(categoryIndex * 0.3) + (skillIndex * 0.1)">
-            
-            <!-- Borde animado -->
-            <div class="skill-border"></div>
-            
-            <!-- Efecto de brillo -->
-            <div class="skill-shine"></div>
-            
-            <!-- Contenido de la habilidad -->
-            <div class="skill-content">
-              <!-- Icono -->
-              <div class="skill-icon-wrapper">
-                <i [class]="skill.icon"></i>
-                <div class="icon-glow"></div>
-              </div>
-              
-              <!-- Nombre -->
-              <span class="skill-name">{{ skill.name }}</span>
-              
-              <!-- Barra de nivel -->
-              <div class="skill-level-container">
-                <div class="skill-level-bg">
-                  <div 
-                    class="skill-level-fill"
-                    [style.width.%]="getSkillLevel(skill.name)">
-                    <div class="level-shine"></div>
-                  </div>
-                </div>
-                <span class="skill-percentage">{{ skill.level }}%</span>
-              </div>
-            </div>
+    </header>
 
-            <!-- Partículas flotantes en hover -->
-            <div class="hover-particles">
-              <div class="hover-particle"></div>
-              <div class="hover-particle"></div>
-              <div class="hover-particle"></div>
+    <div class="skills-grid">
+      <div *ngFor="let category of categories" class="category-section">
+        <div class="category-header">
+          <span class="category-icon">{{ category.icon }}</span>
+          <h3 class="category-title">{{ category.label }}</h3>
+          <span class="category-count">{{ getCategorySkills(category.id).length }}</span>
+        </div>
+
+        <div class="skills-list">
+          <div *ngFor="let skill of getCategorySkills(category.id)" class="skill-card">
+            <div class="skill-info">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-percent">{{ skill.level }}%</span>
+            </div>
+            <div class="skill-bar">
+              <div 
+                class="skill-progress" 
+                [style.width.%]="getSkillLevel(skill.name)">
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-summary">
+      <div class="summary-card">
+        <div class="summary-icon">🎯</div>
+        <div class="summary-content">
+          <span class="summary-value">{{ skills.length }}+</span>
+          <span class="summary-label">Technologies</span>
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-icon">🏆</div>
+        <div class="summary-content">
+          <span class="summary-value">2+</span>
+          <span class="summary-label">Years Experience</span>
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-icon">📚</div>
+        <div class="summary-content">
+          <span class="summary-value">Always</span>
+          <span class="summary-label">Learning</span>
         </div>
       </div>
     </div>

@@ -1,68 +1,48 @@
-<section class="certifications-section" id="certifications">
-  <!-- Canvas de partículas glass -->
-  <canvas #particlesCanvas class="particles-canvas"></canvas>
-  
-  <!-- Orbes decorativos glass -->
-  <div class="glass-orb glass-orb-1"></div>
-  <div class="glass-orb glass-orb-2"></div>
-  <div class="glass-orb glass-orb-3"></div>
+<section class="certifications" id="certifications">
+  <div class="certifications-bg">
+    <div class="grid-pattern"></div>
+  </div>
 
-  <div class="cyber-grid">
-    <!-- Header mejorado -->
-    <h2 class="section-title">
-      Certificaciones<span class="accent">_</span>
-    </h2>
-    
-    <!-- Grid de certificaciones dinámico con *ngFor -->
-    <div class="certifications-container">
+  <div class="certifications-container">
+    <header class="section-header">
+      <span class="section-label">Achievements</span>
+      <h2 class="section-title">Certifications</h2>
+      <p class="section-subtitle">
+        Professional certifications and continuous learning
+      </p>
+    </header>
+
+    <div class="certifications-grid">
       <article 
-        *ngFor="let cert of certifications; let i = index" 
+        *ngFor="let cert of certifications; let i = index"
         class="cert-card"
-        [style.animation-delay.s]="(i + 1) * 0.1">
+        [style.animation-delay.s]="i * 0.1">
         
+        <div class="cert-icon">
+          <span class="icon-emoji">{{ cert.icon }}</span>
+        </div>
+
         <div class="cert-content">
-          <!-- Efectos glass -->
-          <div class="glass-shine"></div>
-          
-          <!-- Badge de verificado -->
-          <div 
-            *ngIf="cert.verified" 
-            class="verified-badge" 
-            title="Certificación verificada">
-            <i class="fas fa-check-circle"></i>
+          <h3 class="cert-title">{{ cert.title }}</h3>
+          <p class="cert-issuer">{{ cert.issuer }}</p>
+          <span class="cert-year">{{ cert.year }}</span>
+
+          <div class="cert-skills">
+            <span *ngFor="let skill of cert.skills" class="skill-tag">
+              {{ skill }}
+            </span>
           </div>
-          
-          <!-- Header de certificación -->
-          <div class="cert-header">
-            <div class="cert-icon">
-              <i [class]="cert.icon"></i>
-            </div>
-            <div class="cert-info">
-              <h3>{{ cert.title }}</h3>
-              <span class="issuer">{{ cert.issuer }} - {{ cert.organization }}</span>
-            </div>
-          </div>
-          
-          <!-- Detalles de certificación -->
-          <div class="cert-details">
-            <p>{{ cert.description }}</p>
-            <a [href]="cert.verifyUrl" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               class="verify-link"
-               [attr.aria-label]="'Verificar certificación de ' + cert.title">
-              <span>Verificar Certificación</span>
-              <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
+
+          <a 
+            [href]="cert.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cert-link">
+            <span>View Certificate</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
       </article>
-    </div>
-    
-    <!-- Mensaje si no hay certificaciones -->
-    <div *ngIf="certifications.length === 0" class="no-certifications">
-      <i class="fas fa-certificate"></i>
-      <p>No hay certificaciones disponibles en este momento.</p>
     </div>
   </div>
 </section>

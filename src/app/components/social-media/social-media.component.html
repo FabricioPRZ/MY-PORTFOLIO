@@ -1,20 +1,19 @@
 <section class="social-media-section" id="social-media">
-  <div class="cyber-grid">
-    <div class="social-media-container">
-      <div class="social-links">
-        <a 
-          *ngFor="let social of socialLinks"
-          [href]="social.url"
-          [target]="social.external ? '_blank' : '_self'"
-          [rel]="social.external ? 'noopener noreferrer' : ''"
-          [class]="'social-link ' + social.platform"
-          [attr.aria-label]="social.ariaLabel"
-          [title]="social.name">
-          
-          <i [class]="social.icon"></i>
-          <span class="link-text">{{ social.name }}</span>
-        </a>
-      </div>
+  <div class="social-media-container">
+    <div class="social-links">
+      <a 
+        *ngFor="let social of socialLinks; let i = index"
+        [href]="social.url"
+        [target]="social.external ? '_blank' : '_self'"
+        [rel]="social.external ? 'noopener noreferrer' : ''"
+        [class]="'social-link ' + social.platform"
+        [attr.aria-label]="social.ariaLabel"
+        [title]="social.name"
+        [style.animation-delay]="(0.5 + (i * 0.1)) + 's'">
+        
+        <i [class]="social.icon"></i>
+        <span class="link-text">{{ social.name }}</span>
+      </a>
     </div>
   </div>
 </section>

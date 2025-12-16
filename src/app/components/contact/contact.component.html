@@ -1,61 +1,55 @@
-<section class="contact-section" id="contact">
-  <!-- Canvas de partículas glass -->
-  <canvas #particlesCanvas class="particles-canvas"></canvas>
-  
-  <!-- Orbes decorativos glass -->
-  <div class="glass-orb glass-orb-1"></div>
-  <div class="glass-orb glass-orb-2"></div>
-  <div class="glass-orb glass-orb-3"></div>
+<section class="contact" id="contact">
+  <div class="contact-bg">
+    <div class="grid-pattern"></div>
+  </div>
 
-  <div class="cyber-grid">
-    <!-- Header mejorado -->
-    <div class="section-header">
-      <h2 class="section-title">
-        Contacto<span class="accent">_</span>
-      </h2>
+  <div class="contact-container">
+    <header class="section-header">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-title">Let's Work Together</h2>
       <p class="section-subtitle">
-        ¿Tienes un proyecto en mente? ¡Hablemos y hagámoslo realidad!
+        Available for freelance projects and full-time opportunities
       </p>
-    </div>
-    
-    <!-- Grid de contacto dinámico con *ngFor -->
+    </header>
+
     <div class="contact-grid">
       <a 
-        *ngFor="let contact of contactMethods; let i = index"
+        *ngFor="let contact of contacts; let i = index"
         [href]="contact.link"
-        [target]="contact.external ? '_blank' : '_self'"
-        [rel]="contact.external ? 'noopener noreferrer' : ''"
+        target="_blank"
+        rel="noopener noreferrer"
         class="contact-card"
-        [style.animation-delay.s]="(i + 1) * 0.1"
-        [attr.aria-label]="contact.ariaLabel">
+        [style.animation-delay.s]="i * 0.1">
         
-        <!-- Efectos glass -->
-        <div class="card-glitch"></div>
-        <div class="glass-shine"></div>
-        
-        <!-- Icono -->
-        <div class="icon-container">
-          <i [class]="contact.icon"></i>
+        <div class="card-icon">
+          <span class="icon-emoji">{{ contact.icon }}</span>
         </div>
-        
-        <!-- Información -->
-        <div class="contact-info">
-          <h3>{{ contact.title }}</h3>
-          <p *ngIf="contact.subtitle">{{ contact.subtitle }}</p>
+
+        <div class="card-content">
+          <h3 class="card-title">{{ contact.title }}</h3>
+          <p class="card-subtitle">{{ contact.subtitle }}</p>
+        </div>
+
+        <div class="card-arrow">
+          <i class="fas fa-arrow-right"></i>
         </div>
       </a>
     </div>
 
-    <!-- CTA principal -->
-    <div class="cta-section">
-      <h3>¿Listo para trabajar juntos?</h3>
-      <p>
-        Estoy disponible para proyectos freelance, colaboraciones y oportunidades laborales. 
-        Contáctame y construyamos algo increíble.
-      </p>
-      <a [href]="'https://wa.me/529651064606'" class="cta-button">
-        <i class="fas fa-paper-plane"></i>
-        <span>Enviar Mensaje</span>
+    <div class="cta-box">
+      <div class="cta-content">
+        <h3 class="cta-title">Have a project in mind?</h3>
+        <p class="cta-text">
+          I'm currently available for new opportunities. Let's create something amazing together.
+        </p>
+      </div>
+      <a 
+        href="https://wa.me/52961909651"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cta-button">
+        <span>Start a Conversation</span>
+        <i class="fas fa-arrow-right"></i>
       </a>
     </div>
   </div>
