@@ -97,8 +97,8 @@ portfolio/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/FabricioPRZ/portfolio.git
-   cd portfolio
+   git clone https://github.com/FabricioPRZ/MY-PORTFOLIO.git
+   cd MY-PORTFOLIO
    ```
 
 2. **Install dependencies**
