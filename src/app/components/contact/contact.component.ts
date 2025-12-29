@@ -22,8 +22,8 @@ export class ContactComponent {
     {
       icon: '📧',
       title: 'Email',
-      subtitle: 'agustinaconstantino55@gmail.com',
-      link: 'mailto:agustinaconstantino55@gmail.com',
+      subtitle: 'fabricioperezcontacto@gmail.com',
+      link: 'mailto:fabricioperezcontacto@gmail.com',
       type: 'email'
     },
     {
@@ -37,7 +37,7 @@ export class ContactComponent {
       icon: '💼',
       title: 'LinkedIn',
       subtitle: 'Victor Fabricio Perez',
-      link: 'https://www.linkedin.com/in/victor-fabricio-perez-constantino-8727512b6/',
+      link: 'https://www.linkedin.com/in/victor-fabricio-perez-constantino-4006453a3/',
       type: 'social'
     },
     {
