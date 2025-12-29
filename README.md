@@ -169,8 +169,8 @@ Multiple contact methods with direct links to email, WhatsApp, LinkedIn, and Git
 
 <div align="center">
 
-[![Email](https://img.shields.io/badge/Email-agustinaconstantino55%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:agustinaconstantino55@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Victor_Fabricio_Perez-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/victor-fabricio-p%C3%A9rez-constantino-568725394/)
+[![Email](https://img.shields.io/badge/Email-fabricioperezcontacto%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:fabricioperezcontacto@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Victor_Fabricio_Perez-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/victor-fabricio-perez-constantino-4006453a3/)
 [![GitHub](https://img.shields.io/badge/GitHub-FabricioPRZ-181717?style=for-the-badge&logo=github)](https://github.com/FabricioPRZ)
 [![Portfolio](https://img.shields.io/badge/Portfolio-fabricio--prz--dev.vercel.app-C9A961?style=for-the-badge&logo=vercel)](https://fabricio-prz-dev.vercel.app/)
 

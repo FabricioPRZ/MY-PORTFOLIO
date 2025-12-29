@@ -35,7 +35,7 @@ export class SocialMediaComponent implements OnInit {
       name: 'LinkedIn',
       platform: 'linkedin',
       icon: 'fab fa-linkedin-in',
-      url: 'https://www.linkedin.com/in/victor-fabricio-perez-constantino-8727512b6/',
+      url: 'https://www.linkedin.com/in/victor-fabricio-perez-constantino-4006453a3/',
       external: true,
       ariaLabel: 'Visitar perfil de LinkedIn',
       color: '#0077B5'
@@ -53,7 +53,7 @@ export class SocialMediaComponent implements OnInit {
       name: 'Email',
       platform: 'email',
       icon: 'fas fa-envelope',
-      url: 'mailto:agustinaconstantino55@gmail.com',
+      url: 'mailto:fabricioperezcontacto@gmail.com',
       external: false,
       ariaLabel: 'Enviar correo electrónico',
       color: '#C9A961'
