@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion as Motion, useReducedMotion } from 'framer-motion'
-import { profile } from '../data/portfolio'
+import { usePortfolio } from '../hooks/usePortfolio.js'
 
 export function Icon({ name = 'arrow', size = 20, ...props }) {
   const paths = {
@@ -37,6 +37,7 @@ export function ExternalLink({ href, children, className = 'text-link', ...props
 }
 
 export function CVButton({ secondary = true, className = '' }) {
+  const profile = usePortfolio().getProfile()
   return <Button href={profile.cv} download="CV_Victor_Fabricio_Perez.pdf" secondary={secondary} icon="download" className={className}>Descargar CV <span className="file-type">PDF</span></Button>
 }
 
